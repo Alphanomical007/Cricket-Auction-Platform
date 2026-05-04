@@ -1,9 +1,8 @@
 [build]
 builder = "dockerfile"
-dockerfilePath = "backend/Dockerfile"
+dockerfilePath = "Dockerfile.backend"
 
 [deploy]
-startCommand = "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
 healthcheckPath = "/api/health"
-healthcheckTimeout = 60
+healthcheckTimeout = 120
 restartPolicyType = "on_failure"
